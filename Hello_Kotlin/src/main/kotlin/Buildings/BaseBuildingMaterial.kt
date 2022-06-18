@@ -13,3 +13,11 @@ class Building<T: BaseBuildingMaterial>(val actualMaterialsNeeded: T){
     }
 }
 
+fun <T: BaseBuildingMaterial> isSmallBuilding(myBuilding: Building<T>) {
+    if ((myBuilding.actualMaterialsNeeded.numberNeeded * myBuilding.baseMaterialsNeeded) < 500) {
+        println("Small building")
+    }else {
+        println("Large building")
+    }
+}
+
