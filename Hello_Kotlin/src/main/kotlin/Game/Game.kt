@@ -2,12 +2,14 @@ package Game
 
 class Game {
     var path= mutableListOf<Directions>(Directions.START)
+    val myLocation= Location()
 
-    var north= {direction: Directions -> path.add(direction)}
-    var south= {direction: Directions -> path.add(direction)}
-    var east= {direction: Directions -> path.add(direction)}
-    var west= {direction: Directions -> path.add(direction)}
+    var north= {direction: Directions -> if(myLocation.updateLocation(direction)) path.add(direction) else showErrorMessage() }
+    var south= {direction: Directions -> if(myLocation.updateLocation(direction)) path.add(direction) else showErrorMessage() }
+    var east= {direction: Directions -> if(myLocation.updateLocation(direction)) path.add(direction) else showErrorMessage() }
+    var west= {direction: Directions -> if(myLocation.updateLocation(direction)) path.add(direction) else showErrorMessage() }
     var end= {direction: Directions ->
+            myLocation.updateLocation(direction)
             path.add(direction)
             println("Game Over: ${path}")
             path.clear()
@@ -27,4 +29,8 @@ class Game {
             else -> move { end( Directions.END ) }
         }
     }
+}
+
+fun showErrorMessage(){
+    println("Oops, out of the map, try another direction!")
 }
