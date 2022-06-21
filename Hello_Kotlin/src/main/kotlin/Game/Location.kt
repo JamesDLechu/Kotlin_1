@@ -32,25 +32,25 @@ class Location (val width: Int = 4, val height: Int = 4){
                 if((actualLocation["first"] ?: 0) - 1 < 0) return false
 
                 actualLocation["first"]= (actualLocation["first"]?.minus(1)) ?: 0
-                println("${actualLocation["first"]} - ${actualLocation["second"]}")
+                println(map[actualLocation["first"] ?: 0][actualLocation["second"] ?: 0])
             }
             Directions.SOUTH -> {
                 if((actualLocation["first"] ?: 0) + 1 > 3) return false
 
                     actualLocation["first"]= (actualLocation["first"]?.plus(1)) ?: 0
-                println("${actualLocation["first"]} - ${actualLocation["second"]}")
+                println(map[actualLocation["first"] ?: 0][actualLocation["second"] ?: 0])
             }
             Directions.EAST -> {
                 if((actualLocation["second"] ?: 0) + 1 > 3) return false
 
                     actualLocation["second"]= (actualLocation["second"]?.plus(1)) ?: 0
-                println("${actualLocation["first"]} - ${actualLocation["second"]}")
+                println(map[actualLocation["first"] ?: 0][actualLocation["second"] ?: 0])
             }
             Directions.WEST -> {
                 if((actualLocation["second"] ?: 0) - 1 < 0) return false
 
                     actualLocation["first"]= (actualLocation["first"]?.minus(1)) ?: 0
-                println("${actualLocation["first"]} - ${actualLocation["second"]}")
+                println(map[actualLocation["first"] ?: 0][actualLocation["second"] ?: 0])
             }
             else -> {
                 println(map[actualLocation["first"] ?: 0][actualLocation["second"] ?: 0])
